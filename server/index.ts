@@ -67,8 +67,8 @@ app.use((req, res, next) => {
       const status = err.status || err.statusCode || 500;
       const message = err.message || "Internal Server Error";
 
+      log(`Error: ${message}`, "error");
       res.status(status).json({ message });
-      throw err;
     });
 
     // importantly only setup vite in development and after
@@ -86,8 +86,24 @@ app.use((req, res, next) => {
     // this serves both the API and the client.
     // It is the only port that is not firewalled.
     const port = parseInt(process.env.PORT || "5000", 10);
+
+    // Log connection attempts for debugging
+    httpServer.on("connection", (socket) => {
+      log(`New connection from ${socket.remoteAddress}:${socket.remotePort}`);
+    });
+
+    httpServer.on("error", (err: NodeJS.ErrnoException) => {
+      if (err.code === "EADDRINUSE") {
+        log(`Port ${port} is already in use`, "error");
+      } else {
+        log(`Server error: ${err.message}`, "error");
+      }
+      process.exit(1);
+    });
+
     httpServer.listen(port, "0.0.0.0", () => {
       log(`serving on port ${port}`);
+      log(`Server ready at http://localhost:${port}`);
     });
   } catch (error) {
     log(`Failed to start server: ${error instanceof Error ? error.message : String(error)}`, "error");
