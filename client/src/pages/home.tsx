@@ -4,7 +4,6 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { COMPANY_INFO } from "@/lib/constants";
-import heroBg from "@assets/generated_images/abstract_tech_hero_background.png";
 
 export default function Home() {
   const container = {
@@ -43,15 +42,17 @@ export default function Home() {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
-          <div className="absolute inset-0 z-0">
-            <img 
-              src={heroBg} 
-              alt="Abstract Technology Background" 
-              className="w-full h-full object-cover opacity-90 dark:opacity-60" 
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/50 to-background z-10" />
-          </div>
+        <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden hero-gradient">
+          <div className="absolute inset-0 opacity-40" style={{ background: 'var(--gradient-glow)' }}></div>
+          <div 
+            className="absolute inset-0 opacity-[0.03]" 
+            style={{ 
+              backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px),
+                               linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)`,
+              backgroundSize: '60px 60px'
+            }}
+          ></div>
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent"></div>
           
           <div className="container relative z-20 px-4 md:px-6 text-center">
             <motion.div 
@@ -60,7 +61,7 @@ export default function Home() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="max-w-3xl mx-auto space-y-6"
             >
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold tracking-tight text-foreground drop-shadow-sm">
+              <h1 className="text-4xl md:text-6xl lg:text-8xl font-heading font-bold tracking-tight text-foreground drop-shadow-sm">
                 {COMPANY_INFO.tagline}
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">

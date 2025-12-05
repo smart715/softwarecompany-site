@@ -74,6 +74,9 @@
   --ring: 221 83% 53%;
   
   --radius: 0.5rem;
+
+  /* Hero Gradients */
+  --gradient-glow: radial-gradient(circle at 50% 50%, rgba(37, 99, 235, 0.15), transparent 70%);
 }
 
 .dark {
@@ -105,6 +108,8 @@
   --border: 217.2 32.6% 17.5%;
   --input: 217.2 32.6% 17.5%;
   --ring: 217 91% 60%;
+
+  --gradient-glow: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.25), transparent 60%);
 }
 
 @layer base {
@@ -116,5 +121,11 @@
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading tracking-tight;
+  }
+}
+
+@layer components {
+  .hero-gradient {
+    background: linear-gradient(to bottom right, hsl(var(--background)), hsl(var(--secondary)));
   }
 }
