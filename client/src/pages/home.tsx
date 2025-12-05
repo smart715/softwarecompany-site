@@ -97,7 +97,7 @@ export default function Home() {
               className="grid grid-cols-1 md:grid-cols-3 gap-8"
             >
               <motion.div variants={item}>
-                <Card className="h-full border-none shadow-lg bg-card/50 backdrop-blur-sm hover:-translate-y-1 transition-transform duration-300">
+                <Card className="h-full border border-transparent hover:border-primary/50 shadow-lg bg-card/50 backdrop-blur-sm hover:-translate-y-1 transition-all duration-300">
                   <CardHeader>
                     <div className="w-12 h-12 rounded-2xl bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-4">
                       <Smartphone className="w-6 h-6" />
@@ -113,7 +113,7 @@ export default function Home() {
               </motion.div>
 
               <motion.div variants={item}>
-                <Card className="h-full border-none shadow-lg bg-card/50 backdrop-blur-sm hover:-translate-y-1 transition-transform duration-300">
+                <Card className="h-full border border-transparent hover:border-primary/50 shadow-lg bg-card/50 backdrop-blur-sm hover:-translate-y-1 transition-all duration-300">
                   <CardHeader>
                     <div className="w-12 h-12 rounded-2xl bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-4">
                       <Globe className="w-6 h-6" />
@@ -129,7 +129,7 @@ export default function Home() {
               </motion.div>
 
               <motion.div variants={item}>
-                <Card className="h-full border-none shadow-lg bg-card/50 backdrop-blur-sm hover:-translate-y-1 transition-transform duration-300">
+                <Card className="h-full border border-transparent hover:border-primary/50 shadow-lg bg-card/50 backdrop-blur-sm hover:-translate-y-1 transition-all duration-300">
                   <CardHeader>
                     <div className="w-12 h-12 rounded-2xl bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 flex items-center justify-center mb-4">
                       <Monitor className="w-6 h-6" />
